@@ -1,0 +1,72 @@
+	{% extends 'polls/basenew.html' %}
+
+{% block main_content %}
+
+{% if question.id > 3 %}
+
+	<div style="margin-left: 20px;"><h4 style="color: gray;">U have voted <span style="color: #222;">{{choice_text}}</span> for
+	<span style="color: #222;">{% if question.id = 7 %}
+				G.Sec Sports.
+			{% endif %}
+
+			{% if question.id = 6 %}
+				G.Sec Tech.
+			{% endif %}
+
+			{% if question.id = 5 %}
+				G.Sec So-Cult.
+			{% endif %}
+
+			{% if question.id = 4 %}
+				Vice President.
+			{% endif %}
+	</span></h4></div>
+
+{% endif %}
+	<hr>
+	<h2 class="candiname">{% if question.id = 6 %}
+			Choose your G.Sec Sports
+		{% endif %}
+
+		{% if question.id = 5 %}
+			Choose your G.Sec Tech
+		{% endif %}
+
+		{% if question.id = 4 %}
+			Choose your G.Sec So-Cult
+		{% endif %}
+
+		{% if question.id = 3 %}
+			Choose your Vice President
+		{% endif %}
+ </h2>
+
+	<br>
+
+	{% if error_message %} <p><strong>{{error_message}}</strong></p> {% endif %}
+
+	<form action="{% url 'polls:vote' question.id %}" method="post">
+		{% csrf_token %}
+		{% for choice in question.choice_set.all %}
+
+				<div  width="180px" style="min-height: 410px;" class="imgdiv">
+
+				{% if choice.image %}
+				<img class="candiimg" src='{{choice.image.url}}'  width="180px" class="img-responsive" alt=''>
+				{% endif %}
+
+				<label class="choice" for="choice{{forloop.counter}}">{{choice.choice_text}}</label> <br>
+				<button style="padding-top: 5px; padding-bottom: 5px; margin-left: 50px;" class="btn btn-lg btn-primary" name="choice" id="choice{{forloop.counter}}"  value="{{choice.id}}">Vote</button>
+
+
+
+				<p></p>
+
+			</div>
+			
+		{% endfor %}
+	</form>
+
+
+
+{% endblock %}

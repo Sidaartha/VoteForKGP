@@ -1,0 +1,27 @@
+{% extends 'polls/base.html' %}
+
+{% block main_content %}
+
+<h2 style="color: #337ab7; font-weight: 600;">Welcome to Opinion-Poll</h2>
+<lable class='lab'>It is an online exit-poll survey portal for the approaching Gymkhana elections which will take the opinion of the students across the campus and their Vote for the candidates which they wish to favor for the respective posts.Users can vote multiple times. The whole motive of this initiative is to anticipate the Popularity of the candidates before the forthcoming elections.</lable>
+<br>
+<br>
+{% if latest_questions %}
+		
+	<a class="btn btn-lg btn-primary" href="{% url 'polls:detail' 3 %}" role="button"><b>Start Voting</b></a>
+
+{% else %}
+	<p>No Question!!</p>
+{% endif %}
+<br>
+
+<!--{% if latest_questions %}
+	<ul>{% for question in latest_questions %}
+			<li><a href={% url 'polls:detail' question.id %}><b>{{question.question_text}}</b></a></li>
+		{% endfor %}
+	</ul>
+{% else %}
+	<p>No Question!!</p>
+{% endif %}-->
+
+{% endblock %}

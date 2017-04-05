@@ -1,0 +1,50 @@
+{% extends 'polls/basenew.html' %}
+
+{% block main_content %}
+
+{{selected_choice.choice_text}}
+
+{% if latest_questions %}
+	{% for question in latest_questions %}
+	<ul ><hr style="margin-bottom: -23px; max-width: 70%;" >
+		
+		<div>{% if question.id = 6 %}
+					<h3 class="ris">{{name3}} </h3>
+				{% endif %}
+		
+				{% if question.id = 5 %}
+					<h3 class="ris">{{name2}} </h3>
+				{% endif %}
+		
+				{% if question.id = 4 %}
+					<h3 class="ris">{{name1}} </h3>
+				{% endif %}
+		
+				{% if question.id = 3 %}
+					<h3 class="ris">{{name0}} </h3>
+				{% endif %}
+		 
+		 		<h4 style="background: #dadada; max-width: 200px; padding: 20px 0px 6px 0px; padding-left: 25px; border-bottom-right-radius: 15px; margin-top: -25px; position: relative; z-index: 10;" ><b style="font-weight: normal;">Total Votes : </b><i><b style="font-weight: 600;">{{question.total_votes}}</b></i></h4></div>
+
+		<!-- <ul style="list-style: none;"> -->
+			{% for choice in question.choice_set.all %}
+			<div style="list-style: none; margin-left: 25px;"><li><b style="font-size: 110%;">{{choice.choice_text}}</b><div><span class="glyphicon glyphicon-circle-arrow-right"></span> &nbsp {{choice.votes}} Vote{{choice.votes|pluralize}}</div>
+														
+				{% if choice.id %}
+					<div style="max-width: 70%;" class="progress"><div class="progress-bar progress-bar-success progress-bar-striped" style="width: {{choice.percentage}}%">
+					<b style="font-weight: 510;">{{choice.percentage}}%</b>
+															</div></div>
+												  		{% endif %}
+												  		</li></div>
+
+						{% endfor %}
+
+	</ul>
+	{% endfor %}
+{% else %}
+	<p>No Question!!</p>
+{% endif %}
+<br>
+<a style="margin-left: 3.4%;" class="btn btn-primary" href="{% url 'polls:detail' 3 %}">Vote again</a>
+
+{% endblock %}

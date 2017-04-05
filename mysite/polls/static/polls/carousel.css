@@ -1,0 +1,75 @@
+
+.carousel {
+  margin-top: 50px;
+  margin-bottom: 0px;
+}
+
+.carousel .item {
+  background-color: #777;
+}
+
+.carousel-inner > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+}
+
+.carousel-caption {
+
+      text-align:center;
+      z-index: 10;
+}
+
+h1 {
+  
+}
+
+p {
+  font-size: 20px;
+}
+
+@media only screen and (max-width: 1000px) {
+.candiimg{
+      max-width: 140px;
+    }
+}
+
+
+
+@media only screen and (max-width: 700px) {
+    p {
+        font-size: 10px;
+
+    }
+
+    label {
+      font-size: 11px;
+    }
+
+    .candiimg{
+      max-width: 95px;
+    }
+
+    .btn{
+      margin-left: 5px;
+    }
+
+    .choice{
+      max-width: 95px;
+    }
+
+    .btn-lg {
+    padding: 6px 10px;
+    font-size: 15px;
+    }
+    
+    h1 {
+      font-size: 20px;
+    }
+    
+    summary{
+      position: absolute;
+      margin-left: 60%;
+    }
+}

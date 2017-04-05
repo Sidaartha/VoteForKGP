@@ -1,0 +1,53 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Vote For KGP</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'polls/bootstrap-3.3.7-dist/css/bootstrap.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'polls/bootstrap-3.3.7-dist/css/bootstrap.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'polls/carousel.css' %}" >
+	<link rel="stylesheet" type="text/css" href="{% static 'polls/stslide.css' %}" >
+</head>
+<body>
+
+	{% include 'polls/nav.html' %}
+	{% include 'polls/header.html' %}
+
+
+<div class="jumbotron">
+      <div class="container">
+ 
+		{% block main_content %}
+		{% endblock %}
+		
+      </div>
+    </div>
+
+<div style="margin-bottom: 30px;" align="center">	
+	<div class="fb-like" data-href="https://www.facebook.com/voteforkgp/" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+</div>
+
+{% include 'polls/footer.html' %}
+<!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="{% static 'polls/bootstrap-3.3.7-dist/js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'polls/bootstrap-3.3.7-dist/js/bootstrap.js' %}"></script>
+</body>
+</html>
